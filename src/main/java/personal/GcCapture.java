@@ -76,6 +76,10 @@ public class GcCapture extends Application {
                 String code = gcToOutput.get(pos).get(1);
                 String value = formatCash(gcToOutput.get(pos).get(2));
                 content.replace(i_code, i_code + CODE.length(), code);
+		value = value.replace("="","");
+		value = value.replace(""","");
+		code = code.replace("$"","");
+		code = code.replace(""","");
                 System.out.println("" + pos + " card " + code + " of value $" + value);
                 content.replace(i_value, i_value + VALUE.length(), value);
                 browser.loadContent(content.toString());
